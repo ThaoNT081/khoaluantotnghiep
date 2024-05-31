@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "bootstrap-5.0.2-dist",
+			"path": "C:/Users/LENOVO/Downloads/bootstrap-5.0.2-dist"
+		},
+		{
+			"name": "html",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "html"
+	}
+}

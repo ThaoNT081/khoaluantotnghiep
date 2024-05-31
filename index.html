@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./html/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./style/styles.css">
+  
+  
+</head>
+<body>
+<div class="main">
+    <!-- header -->
+    <div class="header">
+        <div class="wrap-content">
+            <div class="navbar">
+              <div class="left-links">
+                <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a href="https://www.facebook.com/profile.php?id=100016142717673"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            </div>
+            <div class="right-links">
+                <a href="./login.html"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="weatherfocast">
+          <a
+              class="weatherwidget-io"
+              href="https://forecast7.com/en/10d75106d68/ho-chi-minh/"
+              data-label_1="HO CHI MINH"
+              data-label_2="WEATHER"
+              data-theme="weather_one"
+              >HO CHI MINH WEATHER</a>
+              <script>
+              !(function (d, s, id) {
+                  var js,
+                  fjs = d.getElementsByTagName(s)[0];
+                  if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://weatherwidget.io/js/widget.min.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                  }
+              })(document, "script", "weatherwidget-io-js");
+              </script>
+      </div>
+    </div>
+
+<!-- Container -->
+    <div class="container">
+        <div class="siderbar">
+            <div class="menu">
+                <ul>
+                  <li> <a class="tablinks active" onclick="openroom(event, 'Home')" id="defaultOpen">Hiển thị </a> </li>
+                  <li> <a class="tablinks" onclick="openroom(event, 'Thiet-lap')"> Thiết lập </a> </li>
+                  <li> <a class="tablinks" onclick="openroom(event, 'Dieu-khien')"> Điều khiển</a></li>
+                </ul>
+                <div class="user_menu">
+                    <div class="icon_user_menu">
+                        <img src="./html/images/user.png" alt="img_user_menu">
+                    </div>
+                    <div class="text_user_menu">
+                        <p class="name_user_menu"> Chủ vườn</p>
+                        <p class="desc_user_menu"> Admin </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <div id="Home" class="tabcontent">
+              <div class="content">
+            <div class="content__top">
+                <div class="btn_auto">
+                  <div>Chế độ đang hoạt động:</div>
+                    <div id="mode"></div>
+                </div>
+                <!-- <div class="time_content_top">
+                
+                </div> -->
+            </div>
+            <div class="content__mid">
+              
+              <div class = "sensor">
+                <div class = "sensor__">
+                  <img class="icon_sensor" src="./html/images/icons8-temperature-100.png" alt="Icon">
+                  <p>Nhiệt độ °C</p>       
+                  <div class="sensor_value">
+                    <span id="nhietdo">0.00</span>
+                  </div>   
+                </div>
+                <div class = "sensor__">
+                  <img class="icon_sensor" src="./html/images/icons8-dew-point-100.png" alt="Icon">
+                  <p>Độ ẩm %</p>   
+                  <div class="sensor_value">
+                    <span id="doam">0.00</span>
+                  </div>          
+                </div>
+                <div class = "sensor__">
+                  <img class="icon_sensor" src="./html/images/ph.png" alt="Icon">
+                  <p> Độ PH </p>
+                  <div class="sensor_value">
+                    <span id="ph">0.00</span>
+                  </div>         
+                </div>
+                <div class = "sensor__">
+                  <img class="icon_sensor" src="./html/images/brightness.png" alt="Icon">
+                  <p>Cường độ ánh sáng</p>    
+                  <div class="sensor_value">
+                    <span id="light">0.00</span>
+                  </div>                         
+                </div>
+                <div class = "sensor__">
+                  <img class="icon_sensor" src="./html/images/water.png" alt="Icon">
+                  <p>Chất dinh dưỡng </p>    
+                  <div class="sensor_value">
+                    <span id="tds">0.00</span>
+                  </div>                         
+                </div>
+              </div>
+            
+            </div>
+            <div class="content__bottom">
+              <div class="content_flex_bottom">
+                <div class="bottom_left">
+                    <img src="./html/images/dautay.jpg" alt="Image 1" style="height: 300px;">
+                </div>
+                <div class="bottom_right">
+                  <div class="box_thongtin_main">
+                    <div class="row row-15">  
+                      <div class="col-md-6 col-12 col-15">
+                        <div class="box_thongtin_item " id="box-muc-nuoc">
+                          <div class="icon_thongtin_item">
+                            <img class="w-100" src="./html/images/glass.png" alt="Icon">
+                          </div>
+                          <div class="text_thongtin_item">
+                            <p>Mực nước dung dịch:</p>
+                            <p class="number"> 
+                              <span id="muc-nuoc"></span>%
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-12 col-15">
+                        <div class="box_thongtin_item " id="box-muc-giamph">
+                          <div class="icon_thongtin_item">
+                            <img class="w-100" src="./html/images/glass.png" alt="Icon">
+                          </div>
+                          <div class="text_thongtin_item">
+                            <p>Mực chất giảm ph:</p>
+                            <p class="number">
+                              <span id="muc-giamph"></span>%
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-12 col-15">
+                        <div class="box_thongtin_item " id="box-muc-tangph">
+                          <div class="icon_thongtin_item">
+                            <img class="w-100" src="./html/images/glass.png" alt="Icon">
+                          </div>
+                          <div class="text_thongtin_item">
+                            <p>Mực chất tăng ph:</p>
+                            <p class="number">
+                              <span id="muc-tangph"></span>%
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-12 col-15">
+                        <div class="box_thongtin_item " id="box-dinh-duong">
+                          <div class="icon_thongtin_item">
+                            <img class="w-100" src="./html/images/glass.png" alt="Icon">
+                          </div>
+                          <div class="text_thongtin_item">
+                            <p>Mực dịch dinh dưỡng:</p>
+                            <p class="number">
+                              <span id="dinh-duong"></span>%
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div> 
+            </div>
+            <!-- Bed room  (content) -->
+            <div id="Thiet-lap" class="tabcontent" style="display: none;">
+              <div class="content">
+                <div class="bed_room">
+                 <div class="head_badroom">
+                      Thiết lập vườn rau
+                 </div>
+                 <div class="body_badroom">
+                    <div class="info_badroom">
+                      Ngày bắt đầu trồng: 
+                      <input type="date" class="form-control" id="inputDate" oninput="calculateDays()">
+                    </div>
+                    <div class="info_badroom">
+                      <div class="result" id="result"></div>
+                    </div>
+                    <div class="box_form_badroom">
+                      <form id="dataForm">
+                        <div class="row_form_badroom">
+                          <div class="text_row_form">
+                            Ngưỡng nồng độ chất dinh dưỡng(ppm):
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="1" class="form-control" value="" id="dd-min">
+                            <label for="">Nhỏ nhất</label>
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="1" class="form-control" value="" id="dd-max">
+                            <label for="">Lớn nhất</label>
+                          </div>
+                        </div>
+                        <div class="row_form_badroom">
+                          <div class="text_row_form">
+                            Ngưỡng nồng độ ph:
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="0.01" min="0" max="14" class="form-control" value="" id="ph-min">
+                            <label for="">Nhỏ nhất</label>
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="0.01" min="0" max="14" class="form-control" value="" id="ph-max">
+                            <label for="">Lớn nhất</label>
+                          </div>
+                        </div>
+                        <div class="row_form_badroom">
+                          <div class="text_row_form">
+                            Ngưỡng nhiệt độ:
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="0.01" min="0" max="100" class="form-control" value="" id="temp-min">
+                            <label for="">Nhỏ nhất</label>
+                          </div>
+                          <div class="input_info form-floating form-floating-cus">
+                            <input type="number" step="0.01" min="0" max="100" class="form-control" value="" id="temp-max">
+                            <label for="">Lớn nhất</label>
+                          </div>
+                        </div>
+                        <button class="submit" type="submit">Thiết Lập</button>
+                      </form>
+                    </div>
+                 </div>
+                </div>
+              </div>  
+            </div>
+
+            <!-- dieu-khien -->
+            <div id="Dieu-khien" class="tabcontent" style="display: none;">
+              <div class="content">
+                  <div class="button-container">
+                    <button id="autoButton" class="button" onclick="toggleMode(1)">Tự động</button>
+                    <button id="manualButton" class="button" onclick="toggleMode(0)">Thủ công</button>
+                 </div>
+              
+              <div class="row1_device"> 
+                    <div class="device" id = "device-den">
+                        <div class="status-button">
+                            <h3 id="statusbutton-den">OFF</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="switch-den" onchange="toggleDevice('switch-den', 'statusbutton-den')" />
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <img src="./html/images/light-bulb.png" alt="" height="60px" width="60px">
+                        <h4>Đèn</h4>
+                        <div class="condition">
+                          <div>Trạng thái:</div>
+                          <div id="check_Den"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="device">
+                        <div class="status-button">
+                            <h3 id="statusbutton-quat">OFF</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="switch-quat" onchange="toggleDevice('switch-quat', 'statusbutton-quat')">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <img src="./html/images/fan.png" alt="" height="60px" width="60px">
+                        <h4>Quạt</h4>
+                        <div class="condition">
+                          <div>Trạng thái:</div>
+                          <div id="check_quat"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="device" id="device-phun">
+                        <div class="status-button">
+                            <h3 id="statusbutton-phun">OFF</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="switch-phun" onchange="toggleDevice('switch-phun', 'statusbutton-phun')">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <img src="./html/images/mist.png" alt="" height="60px" width="60px">
+                        <h4>Phun sương</h4>
+                        <div class="condition">
+                          <div>Trạng thái:</div>
+                          <div id="check_Phun"></div>
+                        </div>
+                    </div>
+              </div>
+
+              <div class="row2_device">
+                    <div class="device" id="device-bom">
+                        <div class="status-button">
+                            <h3 id="statusbutton-bom">OFF</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="switch-bom" onchange="toggleDevice('switch-bom', 'statusbutton-bom')">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <img src="./html/images/pump.png" alt="" height="60px" width="60px">
+                        <h4>Bơm nước</h4>
+                        <div class="condition">
+                          <div>Trạng thái:</div>
+                          <div id="check_BomNuoc"></div>
+                        </div>
+                    </div>
+                    <div class="device"id="device-giamph">
+                      <div class="status-button">
+                          <h3 id="statusbutton-giamph">OFF</h3>
+                          <label class="switch">
+                              <input type="checkbox" id="switch-giamph" onchange="toggleDevice('switch-giamph', 'statusbutton-giamph')">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                      <img src="./html/images/water-pump.png" alt="" height="60px" width="60px">
+                      <h4>Giảm pH</h4>
+                      <div class="condition">
+                        <div>Trạng thái:</div>
+                        <div id="check_GiamPh"></div>
+                      </div>
+                    </div>
+                    <div class="device" id="device-tangph">
+                      <div class="status-button">
+                          <h3 id="statusbutton-tangph">OFF</h3>
+                          <label class="switch">
+                              <input type="checkbox" id="switch-tangph" onchange="toggleDevice('switch-tangph', 'statusbutton-tangph')">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                      <img src="./html/images/water-pump.png" alt="" height="60px" width="60px">
+                      <h4>Tăng pH</h4>
+                      <div class="condition">
+                        <div>Trạng thái:</div>
+                        <div id="check_TangPh"></div>
+                      </div>
+                    </div>
+                    <div class="device" id="device-bomdd">
+                      <div class="status-button" >
+                          <h3 id="statusbutton-bomdd">OFF</h3>
+                          <label class="switch">
+                              <input type="checkbox" id="switch-bomdd" onchange="toggleDevice('switch-bomdd', 'statusbutton-bomdd')">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                      <img src="./html/images/pump.png" alt="" height="60px" width="60px">
+                      <h4>Dung dịch</h4>
+                      <div class="condition">
+                        <div>Trạng thái:</div>
+                        <div id="check_BomDd"></div>
+                      </div>
+                    </div>
+              </div> 
+                    
+                    
+                      
+           
+                    
+                    
+                   
+                    
+                  </div>
+                 </div> 
+                
+                </div>
+              </div>
+            </div>
+            
+        </div>
+       
+    </div>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script> 
+<script src="./js/script.js"></script>
+</body>
+</html>
